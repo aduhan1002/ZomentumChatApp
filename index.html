@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+    <link href='https://fonts.googleapis.com/css?family=Amaranth' rel='stylesheet'>
+
+    <title>Zomentum</title>
+</head>
+
+<body>
+    <div class="row no-gutters">
+        <div class="col-md-4 border-right" id="allChats">
+        </div>
+        <div class="col-md-8" id="mainChat">
+            <div class="row no-gutters">
+                <div class="col-md-10 offset-md-1 centered">
+                    <h3>Welcome Rohan!</h3>
+                    <img class="mainImage" src="https://picsum.photos/id/103/200/200" alt="welcome">
+                    <p><b>Status:</b> An eagle is a lobster from the right perspective.</p>
+                    <hr>
+                    <button type="button" class="btn btn-primary btn-lg">Start a Conversation</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+    <script>
+        var chatsArray = [
+            {
+                "id": 1,
+                "name": "Ashish Duhan",
+                "image": "https://picsum.photos/id/1015/100/100",
+                "status": "The only difference between a good day and a bad day is your attitude.",
+                "messages": {
+                    "sent": [
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                        "Fusce finibus elit ut odio vulputate, in rhoncus justo blandit.",
+                        "Phasellus id ipsum elementum neque efficitur volutpat id non ligula."],
+                    "recieved": [
+                        "Quisque eget felis vehicula, tristique tortor sit amet, vestibulum metus.",
+                        "Morbi euismod leo et interdum viverra."
+                    ]
+                }
+            },
+            {
+                "id": 2,
+                "name": "Abhishek Aggarwal",
+                "image": "https://picsum.photos/id/1023/100/100",
+                "status": "Life is too short to waste on hating other people.",
+                "messages": {
+                    "sent": [
+                        "Fusce ultrices sem vel est suscipit, ultrices viverra ante malesuada.",
+                        "Duis gravida lectus sit amet tellus bibendum, ut cursus nisi aliquam.",
+                        "Curabitur ac neque id massa cursus mattis."
+                    ],
+                    "recieved": [
+                        "Fusce finibus elit ut odio vulputate, in rhoncus justo blandit.",
+                        "Phasellus id ipsum elementum neque efficitur volutpat id non ligula."
+                    ]
+                }
+            },
+            {
+                "id": 3,
+                "name": "Shaurya Wardhan",
+                "image": "https://picsum.photos/id/1016/100/100",
+                "status": "Expect nothing and you will never be disappointed.",
+                "messages": {
+                    "sent": [
+                        "Aliquam a massa ut sem mattis lobortis at facilisis ligula.",
+                        "Duis euismod nisi nec leo finibus iaculis.",
+                        "Sed efficitur nunc eget nisl gravida, sed laoreet odio ultricies."
+                    ],
+                    "recieved": [
+                        "Duis volutpat felis non ex eleifend, eget pretium sapien convallis.",
+                        "Fusce ultrices sem vel est suscipit, ultrices viverra ante malesuada."
+                    ]
+                }
+            },
+            {
+                "id": 4,
+                "name": "Sanyam Jain",
+                "image": "https://picsum.photos/id/1012/100/100",
+                "status": "The world is not what it seems.",
+                "messages": {
+                    "sent": [
+                        "Maecenas auctor dui id erat euismod porttitor.",
+                        "Pellentesque congue dolor vel justo tristique hendrerit in non turpis.",
+                        "Donec vitae odio porta, tempor leo sit amet, semper diam."
+                    ],
+                    "recieved": [
+                        "Quisque commodo urna ac arcu consequat, ac convallis nisl consequat.",
+                        "Duis elementum elit sed orci mollis tempus."
+                    ]
+                }
+            },
+            {
+                "id": 5,
+                "name": "Yash Kaushik",
+                "image": "https://picsum.photos/id/101/100/100",
+                "status": "You can do anything but not everything.",
+                "messages": {
+                    "sent": [
+                        "Donec feugiat justo id tincidunt molestie.",
+                        "Suspendisse posuere quam quis orci vehicula ullamcorper.",
+                        "Pellentesque tristique justo sed iaculis ornare."
+                    ],
+                    "recieved": [
+                        "Suspendisse et ipsum vel nisl lobortis consequat id eu dui.",
+                        "Morbi tincidunt enim eget dictum sagittis."
+                    ]
+                }
+            },
+            {
+                "id": 6,
+                "name": "Vishesh Jain",
+                "image": "https://picsum.photos/id/1006/100/100",
+                "status": "Hakuna Matata!!–the great motto to live life!!",
+                "messages": {
+                    "sent": [
+                        "Curabitur dictum est vel velit ultricies blandit.",
+                        "Quisque varius mi quis purus dapibus, a egestas nunc fermentum.",
+                        "Curabitur sed urna nec arcu placerat placerat quis at nisi."
+                    ],
+                    "recieved": [
+                        "Suspendisse et ipsum vel nisl lobortis consequat id eu dui.",
+                        "Morbi tincidunt enim eget dictum sagittis."
+                    ]
+                }
+            },
+            {
+                "id": 7,
+                "name": "Bhavya Seth",
+                "image": "https://picsum.photos/id/1005/100/100",
+                "status": "You have to stay strong when it gets tough.",
+                "messages": {
+                    "sent": [
+                        "Donec feugiat justo id tincidunt molestie.",
+                        "Suspendisse posuere quam quis orci vehicula ullamcorper.",
+                        "Pellentesque tristique justo sed iaculis ornare."
+                    ],
+                    "recieved": [
+                        "Duis elementum elit sed orci mollis tempus.",
+                        "Sed congue massa vel lacus sodales, sed accumsan turpis euismod."
+                    ]
+                }
+            },
+            {
+                "id": 8,
+                "name": "Ram Sethi",
+                "image": "https://picsum.photos/id/1001/100/100",
+                "status": "Born to express not to impress.",
+                "messages": {
+                    "sent": [
+                        "Ut nec ipsum nec erat imperdiet volutpat a rhoncus elit.",
+                        "Donec sodales nisi in sapien condimentum, blandit convallis dolor dapibus.",
+                        "Nunc sollicitudin libero ac nisi semper imperdiet."
+                    ],
+                    "recieved": [
+                        "Vivamus ut enim in nisi ornare hendrerit et id felis.",
+                        "Suspendisse tempus risus ac erat pellentesque, quis tincidunt magna placerat."
+                    ]
+                }
+            },
+            {
+                "id": 9,
+                "name": "Vaibhav Sharma",
+                "image": "https://picsum.photos/id/1/100/100",
+                "status": "Comparison is the thief of joy.",
+                "messages": {
+                    "sent": [
+                        "Pellentesque id ex et sapien semper placerat sit amet sit amet orci.",
+                        "Sed ut dolor vitae urna semper viverra vel ut metus.",
+                        "Maecenas tincidunt leo sed diam tincidunt, at imperdiet eros fermentum."
+                    ],
+                    "recieved": [
+                        "Duis non ipsum quis metus imperdiet tempor.",
+                        "Morbi hendrerit lacus id gravida convallis."
+                    ]
+                }
+            },
+            {
+                "id": 10,
+                "name": "Akash Duhan",
+                "image": "https://picsum.photos/id/1012/100/100",
+                "status": "Who you are is what you want to be.",
+                "messages": {
+                    "sent": [
+                        "Quisque non elit nec mauris maximus pellentesque.",
+                        "Vestibulum nec lorem at tortor molestie tempor.",
+                        "Morbi condimentum metus a augue mollis faucibus."
+                    ],
+                    "recieved": [
+                        "Etiam consectetur felis vel mauris laoreet scelerisque.",
+                        "Nam vel tellus aliquam, tincidunt mi nec, tincidunt libero."
+                    ]
+                }
+            },
+        ];
+        var addedElements = "";
+        for (chat in chatsArray) {
+            var l = chatsArray[chat].messages.sent.length;
+            addedElements += '<div class="friend-drawer friend-drawer--onhover" id="' + chatsArray[chat].id + '"onClick="myFunc(this.id);">';
+            addedElements += '<img class="profile-image" src="' + chatsArray[chat].image + '"alt="' + chatsArray[chat].name + '">';
+            addedElements += '<div class="text">';
+            addedElements += '<h6>' + chatsArray[chat].name + '</h6>';
+            addedElements += '<p class="text-muted">' + chatsArray[chat].messages.sent[l - 1] + '</p></div>';
+            addedElements += '<span class="time text-muted small">13:21</span></div>';
+        }
+        var element = chatsArray[0];
+        document.getElementById("allChats").innerHTML = addedElements;
+        function myFunc(Id) {
+            element = chatsArray.find(function (item) {
+                if (item.id == Id) {
+                    return item;
+                }
+            });
+            var fullChat = '<div id="chatData"><div class="settings-tray">' +
+                '<div class="no-gutters chatTop"><div class="row no-gutters fullHeight">' +
+                '<div class="col-md-8 fullHeight"><div class="text fullHeight">' +
+                '<h3>' + element.name + '</h3>' +
+                '<p>' + element.status + '</p></div></div>' +
+                '<div class="col-md-4 fullHeight"><img class="profile-image-full"' +
+                'src="' + element.image + '" alt="' + element.name + '"></div>' +
+                '</div></div><hr class="full"></div>';
+            fullChat += '<div class="chat-panel" id="chats-panel">';
+            var r = element.messages.recieved.length;
+            var m = element.messages.sent.length;
+            var i = 0, j = 0;
+            while (i < r && j < m) {
+                if (i < j) {
+                    fullChat += '<div class="row no-gutters">' +
+                        '<div class="col-md-12">' +
+                        '<div class="chat-bubble chat-bubble--left">' +
+                        element.messages.recieved[i] +
+                        '</div></div></div>';
+                    i++;
+                }
+                else {
+                    fullChat += '<div class="row no-gutters">' +
+                        '<div class="col-md-12" >' +
+                        '<div class="chat-bubble chat-bubble--right">' +
+                        element.messages.sent[j] +
+                        '</div></div></div>';
+                    j++;
+                }
+            }
+            while (i < r) {
+                fullChat += '<div class="row no-gutters">' +
+                    '<div class="col-md-12">' +
+                    '<div class="chat-bubble chat-bubble--left">' +
+                    element.messages.recieved[i] +
+                    '</div></div></div>';
+                i++;
+            }
+            while (j < m) {
+                fullChat += '<div class="row no-gutters">' +
+                    '<div class="col-md-12">' +
+                    '<div class="chat-bubble chat-bubble--right">' +
+                    element.messages.sent[j] +
+                    '</div></div></div>';
+                j++;
+            }
+            fullChat += '</div></div>';
+            fullChat += '<div class="row footer">' +
+                '<div class="col-12">' +
+                '<div class="chat-box-tray">' +
+                '<input type="text" id="inputText" placeholder="  Type your message here...">' +
+                '</div></div></div>';
+            document.getElementById("mainChat").innerHTML = fullChat;
+            var temp = document.getElementById("chats-panel");
+            temp.scrollTop = temp.scrollHeight;
+        }
+        function addMessage() {
+            var text = document.getElementById('inputText').value;
+            if (text === "")
+                return;
+            for (i in chatsArray) {
+                if (chatsArray[i].id == element.id) {
+                    chatsArray[i].messages.sent.push(text);
+                    element = chatsArray[i];
+                    break;
+                }
+            }
+            document.getElementById('inputText').value = '';
+            myFunc(element.id);
+        }
+    </script>
+    <script>
+        var checkExist = setInterval(function () {
+            if (document.getElementById('inputText') != null) {
+                document.getElementById('inputText').onkeypress = function (event) {
+                    if (event.keyCode == 13) {
+                        addMessage();
+                    }
+                };
+            }
+        }, 100);
+    </script>
+    <script>
+
+        $('.friend-drawer--onhover').on('click', function () {
+
+            $('.chat-bubble').hide('slow').show('slow');
+
+        });
+
+    </script>
+</body>
+
+</html>
